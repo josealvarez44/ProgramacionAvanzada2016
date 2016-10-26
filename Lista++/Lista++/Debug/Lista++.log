@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  Node.cpp
+  Lista.cpp
+  Lista++.cpp
+  Generando código...
+c:\users\jasgs\desktop\programacionavanzada2016\lista++\lista++\lista.cpp(164): warning C4715: 'Lista::Turn': no todas las rutas de acceso de control devuelven un valor
+  Lista++.vcxproj -> C:\Users\jasgs\Desktop\ProgramacionAvanzada2016\Lista++\Debug\Lista++.exe
+  Lista++.vcxproj -> C:\Users\jasgs\Desktop\ProgramacionAvanzada2016\Lista++\Debug\Lista++.pdb (Full PDB)
