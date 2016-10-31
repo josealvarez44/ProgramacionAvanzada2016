@@ -10,17 +10,10 @@ using namespace std;
 
 int main()
 {
-	string expression = "1*2+3/4";//+*12/34
-	/*
-			+*12/34
-				 +
-			*		/
-		1		2 3		4
-
-	*/
+	string expression = "2*(2*3)^2";
 	Expression exp;
 	string post, pre;
-	post = exp.toPostfix(expression);
+	//post = exp.toPostfix(expression);
 	pre = exp.toPrefix(expression);
 	BinaryTreeNode* bt = exp.prefixToBinaryTree(pre);
 	cout << expression << "\n" << post << "\n" << pre;

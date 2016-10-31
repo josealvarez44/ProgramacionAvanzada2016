@@ -39,31 +39,61 @@ string Expression::toPostfix(string exp)
 
 string Expression::toPrefix(string exp)
 {
+	//Start with an empty string.
 	string prefix = "";	
+
+	//A stack to order operators until they can be written on the 
+	//prefix expression.
 	stack<string> operators;
-	string currentNumber = "";
+
+	//Traverse the infix expression from last element to first element.
 	for (int i = exp.length() ; i > 0; i--)
 	{
+		//Get previous element on string.
 		string currentItem = exp.substr(i-1, 1);
 
+		// If the element is a number, constant or variable 
+		// Prepend it to the final prefix expression.
 		if (isDigit(currentItem))
 		{
 			prefix = currentItem+prefix;
 			continue;
 		}
 
+		//If the current element is an operator we need to check for hierarchies and grouping orders.
 		if (isOperator(currentItem))
 		{
-			while ((!operators.empty()) &&
+			//If the stack is not empty, we have to pop out from the stack any 
+			//elements that have greater or equal hierarchy that the current element 
+			//except when the  top element in the stack is a closing parenthesis.
+			while ((!operators.empty()) && (operators.top() != ")") &&
 				(hierarchy(operators.top()) >= hierarchy(currentItem)))
 			{
 				prefix = operators.top() + prefix;
 				operators.pop();
 			}
+			
+
+			//If the current element is an opening parenthesis we pop out everything
+			//until we find a closing parentesis.
+			if (currentItem == "(")
+			{
+				while (operators.top() != ")")
+				{
+					prefix = operators.top() + prefix;
+					operators.pop();
+				}
+				//We take out the closing parentesis (needed because the while does not
+				//pops it out)
+				operators.pop();
+				continue;
+			}
+			//Push the operator is none of the other two conditions was met.
 			operators.push(currentItem);
 		}
 	}
 
+	//Clear any remaining elements on stack.
 	while (!operators.empty())
 	{
 		prefix = operators.top() + prefix; operators.pop();
@@ -101,19 +131,23 @@ string Expression::removeExpression(string exp)
 
 int Expression::hierarchy(string op)
 {
-	if (op == "~")
-		return 10;
+	if (op == ")")
+		return INT_MAX;
+	if (op == "(")
+		return INT_MIN;
 	if (op == "+" || op == "-")
 		return 1;
 	if (op == "*" || op == "/")
 		return 2;
 	if (op == "^" || op == "^")
 		return 3;
+	if (op == "~")
+		return 10;
 }
 
 bool Expression::isOperator(string op)
 {
-	string operators = "~+-*/^";
+	string operators = "~+-*/^()";
 	return operators.find(op) != string::npos;
 }
 
