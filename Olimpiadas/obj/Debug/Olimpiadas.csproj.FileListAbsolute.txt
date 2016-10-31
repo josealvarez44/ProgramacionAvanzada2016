@@ -1,0 +1,6 @@
+C:\Users\boris\OneDrive\Documents\ProgramacionAvanzada\programacion-avanzada-2016\Olimpiadas\bin\Debug\Olimpiadas.exe.config
+C:\Users\boris\OneDrive\Documents\ProgramacionAvanzada\programacion-avanzada-2016\Olimpiadas\bin\Debug\Olimpiadas.exe
+C:\Users\boris\OneDrive\Documents\ProgramacionAvanzada\programacion-avanzada-2016\Olimpiadas\bin\Debug\Olimpiadas.pdb
+C:\Users\boris\OneDrive\Documents\ProgramacionAvanzada\programacion-avanzada-2016\Olimpiadas\obj\Debug\Olimpiadas.csprojResolveAssemblyReference.cache
+C:\Users\boris\OneDrive\Documents\ProgramacionAvanzada\programacion-avanzada-2016\Olimpiadas\obj\Debug\Olimpiadas.exe
+C:\Users\boris\OneDrive\Documents\ProgramacionAvanzada\programacion-avanzada-2016\Olimpiadas\obj\Debug\Olimpiadas.pdb
